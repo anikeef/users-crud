@@ -8,10 +8,6 @@
     display: flex;
   }
 
-  &__edit {
-    margin-left: 50px;
-  }
-
   &__actions {
     margin-left: auto;
   }
@@ -22,6 +18,7 @@
     font-weight: bold;
     cursor: pointer;
     outline: none;
+    background: white;
   }
 
   &__id {

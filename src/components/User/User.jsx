@@ -29,9 +29,7 @@ export class User extends React.Component {
         
         { 
           this.state.isEditing &&
-          <div className={ s.user__edit }>
-            <UserForm user={ user } action='Edit' onSubmit={ (data) => onPatch(user.id, data) } />
-          </div>
+          <UserForm user={ user } action='Edit' onSubmit={ (data) => onPatch(user.id, data) } />
         }
       </div>
     );
