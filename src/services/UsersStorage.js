@@ -1,21 +1,19 @@
 import { User } from '../models/User';
 import { config } from '../configurations/config';
 
-const getUniqueId = () => Date.now();
+const generateUniqueId = () => Date.now();
 
-// Promises are used here to provide easy switching between sync and async storage types
+// Promises are used here to provide easy switching between sync and async storage types.
+// This is currently not used, but would be quite useful if we'd like to add something like 
+// remote storage
 
 export class UsersStorage {
   constructor() {
-    this.storage = new config.usersStorage;
-  }
-
-  getAll() {
-    return Promise.resolve(this.storage.getAll());
+    this.storage = new config.usersStorage();
   }
 
   create(data) {
-    return Promise.resolve(this.storage.create(new User(data, getUniqueId())));
+    return Promise.resolve(this.storage.create(new User(data, generateUniqueId())));
   }
 
   delete(id) {

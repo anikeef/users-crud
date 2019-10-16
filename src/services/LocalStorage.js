@@ -9,10 +9,6 @@ export class LocalStorage {
     this._updateItems(items);
   }
 
-  getAll() {
-    return this._items();
-  }
-
   delete(id) {
     const items = this._items();
     const newItems = items.filter((item) => item.id !== id);

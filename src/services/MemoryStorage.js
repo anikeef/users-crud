@@ -7,10 +7,6 @@ export class MemoryStorage {
     this.items.push(item);
   }
 
-  getAll() {
-    return this.items;
-  }
-
   delete(id) {
     this.items = this.items.filter((item) => item.id !== id);
   }
