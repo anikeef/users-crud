@@ -20,7 +20,8 @@ export class Users extends React.Component {
       .then(() => this.update());
   }
 
-  search = (event) => {
+  handleSearch = (event) => {
+    this.setState({ searchQuery: event.target.value });
     this.usersStorage.search(event.target.value)
       .then((users) => this.setState({ users }));
   }
@@ -28,7 +29,8 @@ export class Users extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      users: [],
+      searchQuery: ''
     };
     this.usersStorage = new UsersStorage();
   }
@@ -40,14 +42,14 @@ export class Users extends React.Component {
   render() {
     return (
       <div className={ s.usersPage }>
-        <UsersSidebar createUser={ this.createUser } onSearch={ this.search } />
+        <UsersSidebar createUser={ this.createUser } onSearch={ this.handleSearch } searchValue={ this.state.searchQuery } />
         <UsersList users={ this.state.users } onDelete={ this.deleteUser } onPatch={ this.patchUser } />
       </div>
     );
   }
 
   update() {
-    this.usersStorage.getAll()
-      .then((users) => this.setState({ users, newUserName: '' }));
+    this.usersStorage.search(this.state.searchQuery)
+      .then((users) => this.setState({ users }));
   }
 }
