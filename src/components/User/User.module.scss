@@ -1,0 +1,31 @@
+@import "../../styles/variables.scss";
+
+.user {
+  border-bottom: 1px solid $lightgrey;
+  padding: 15px;
+
+  &__info {
+    display: flex;
+  }
+
+  &__edit {
+    margin-left: 50px;
+  }
+
+  &__actions {
+    margin-left: auto;
+  }
+
+  &__action {
+    border: none;
+    margin-right: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &__id {
+    color: $grey;
+    min-width: 150px;
+  }
+}
